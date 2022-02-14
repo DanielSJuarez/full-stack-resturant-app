@@ -1,4 +1,3 @@
-from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -10,5 +9,3 @@ class MenuItem(models.Model):
     size = models.CharField(max_length=255)
     url = models.ImageField()
 
-    def __str__(self):
-        return self.title
