@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django = "~=4.0.2"
+pillow = "~=9.0.1"
+djangorestframework = "~=3.13.1"
 
 [dev-packages]
 
