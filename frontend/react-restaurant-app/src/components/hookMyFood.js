@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MenuList from "./menuList";
 import OrderDisplay from "./orderDisplay";
+import Cookies from 'js-cookie'
 // import MENU from "./menuItems";
 
 function HookMyFood(props) {
@@ -9,13 +10,13 @@ function HookMyFood(props) {
     const [orderList, setOrderList] = useState([]);
     const [screen, setScreen] = useState(false);
 
-    const handleError = (err) => {
+    const errorMessage = (err) => {
         console.warn(err);
     }
 
     useEffect(() => {
-        const getMenu = async () => { 
-            const response = await fetch('/menu/').catch(handleError); 
+        const getMenu = async () => {
+            const response = await fetch('/menu/').catch(errorMessage);
             if (!response.ok) {
                 throw new Error('Netword response was not OK!')
             } else {
@@ -24,7 +25,7 @@ function HookMyFood(props) {
             }
         }
         getMenu();
-    }, []) 
+    }, [])
 
     if (!menu) {
         return <div>Fetching menu data....</div>
@@ -55,13 +56,49 @@ function HookMyFood(props) {
         setOrderList(removeSelectedItem);
     }
 
-    const clearOrder = () => {
+    const clearOrder = async () => {
         // let previousLocalStorage = localStorage.getItem('orderList'); getting orders from local storage
         // localStorage.setItem('orderList', JSON.stringify([orderList, previousLocalStorage])); posting orders to local storage
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'X-CSRFToken': Cookies.get('csrftoken')
+            },
+            body: JSON.stringify(order)
+        }
+
+        const response = await fetch('/orders/', options).catch(errorMessage);
+
+        if (!response.ok) {
+            throw new Error('Network response was not OK');
+        }
+
         setTotal(0);
         setOrderList([]);
         setScreen(false);
     }
+
+    // const addReview = async () => {
+    //     const review = {
+    //         text: 'loraldfjasdlfjaslfkjasldfjaslfjaslkfjalskjfasldfjk'
+    //     }
+    //     const options = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'application/json',
+    //             'X-CSRFToken': Cookies.get('csrftoken')
+    //         },
+    //         body: JSON.stringify(review)
+    //     }
+
+    //     const response = await fetch('/api/v1/books/reviews/', options).catch(errorMessage);
+
+    //     if (!response.ok) {
+    //         throw new Error('Network response was not OK');
+    //     }
+    // }
 
 
     const tacoSelection = menu.filter(menu => (
