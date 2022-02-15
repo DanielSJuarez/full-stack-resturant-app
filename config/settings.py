@@ -129,5 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Static file directories
 #https://docs.djangoproject.com/en/4.0/topics/files/#managing-files
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'frontend/static/build/static'),) #react app
-REACT_APP_DIR = (os.path.join(BASE_DIR, 'frontend/static'))
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'frontend/static/build/react-restaurant-app'),) 
+REACT_APP_DIR = (os.path.join(BASE_DIR, 'frontend/react-restaurant-app')) #update app name
