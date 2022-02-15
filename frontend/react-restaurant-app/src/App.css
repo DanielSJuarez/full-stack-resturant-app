@@ -1,0 +1,197 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.foodItemButtons {
+  border: none;
+  background-color: #bc4f07;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 35px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.restaurantsDisplay{
+  color: #fe982a;
+  background-image: linear-gradient(to bottom, #005236, #6bc4ab);
+  text-align: center;
+  word-spacing: 10px;
+  padding-top: 10px;
+}
+
+.menuDisplay{
+  border: solid 5px #fe982a;
+  color: #fe982a;
+  background-color: #20686c;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.menuHeader{
+  border: solid 5px #fe982a;
+  color: #fe982a;
+  background-color: #20686c;
+  padding-left: 5px;
+}
+
+.container{
+  background-color: #6bc4ab;
+}
+
+.imgDiv{
+  max-width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+.foodItemButtons:hover{
+  color: white;
+  background-color: #005236;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.catHeader{
+  color: #fe982a;
+  background-color: #bc4f07;
+  margin-right: 500px;
+  height: 30px;
+  padding-top: 4px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.footer{
+  background-image: linear-gradient(to bottom, #6bc4ab, #005236);
+  height: 50px;
+  text-align: right;
+}
+
+a{
+  color: #bc4f07;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.orderButton{
+  background-color: #fe982a;
+  border: solid 1px black;
+  margin: 10px 0px;
+  font-weight: 700;
+  width: 300px;
+}
+
+.orderButton:hover{
+  background-color:#005236;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: solid 1px white;
+}
+
+.orderDetails{
+  position: sticky;
+  top: 0;
+  background-image: linear-gradient(to bottom,#6bc4ab, #005236, #6bc4ab);
+}
+
+.deleteItem{
+  background-color: #fe982a;
+  border: solid 1px black;
+  margin: 10px 0px;
+  font-weight: 700;
+}
+
+.deleteItem:hover{
+  background-color:#005236;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: solid 1px white;
+}
+
+.backToMenu{
+  background-color: #005236;
+  color: white;
+  border: solid 1px white;
+  margin: 10px 686px 10px 0px;
+  font-weight: 700;
+  width: 300px;
+}
+
+.backToMenu:hover{
+  background-color:#fe982a;
+  color: black;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: solid 1px black;
+}
+
+.subTotal{
+  font-weight: 700;
+  color: black;
+  width: 135px;
+  background-color: white;
+  padding-left: 5px;
+  border: solid 1px black;
+  cursor: default;
+}
+
+.orderDisplay{
+  color:#bc4f07;
+  font-weight: 600;
+  font-style: italic;
+  width: 300px;
+  padding-left: 10px;
+}
+
+.deleteItem{
+  margin-left: 119px;
+}
+
+.completeButton{
+  background-color: #fe982a;
+  border: solid 1px black;
+  margin: 10px 10px 10px 0px;
+  font-weight: 700;
+  width: 145px;
+}
+
+.completeButton:hover{
+  background-color:#005236;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: solid 1px white;
+}

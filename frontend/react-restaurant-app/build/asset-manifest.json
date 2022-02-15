@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/react-restaurant-app/static/css/main.d9c5b147.css",
+    "main.js": "/react-restaurant-app/static/js/main.57bea185.js",
+    "static/js/787.6a1e1712.chunk.js": "/react-restaurant-app/static/js/787.6a1e1712.chunk.js",
+    "static/media/custom_taco.jpeg": "/react-restaurant-app/static/media/custom_taco.918ddb004bbd67a1b96c.jpeg",
+    "static/media/not_chicken_taco.jpeg": "/react-restaurant-app/static/media/not_chicken_taco.046f9b60d2e870a94540.jpeg",
+    "static/media/shrimp_taco.jpeg": "/react-restaurant-app/static/media/shrimp_taco.2fd467795042985426ec.jpeg",
+    "static/media/not_beef_taco.jpeg": "/react-restaurant-app/static/media/not_beef_taco.2caadac80c868fb516b0.jpeg",
+    "static/media/beef_taco.jpeg": "/react-restaurant-app/static/media/beef_taco.3d91260f136684370ece.jpeg",
+    "static/media/fruit_cup.jpeg": "/react-restaurant-app/static/media/fruit_cup.d252680aedc3638f04eb.jpeg",
+    "static/media/supreme_pizza.jpeg": "/react-restaurant-app/static/media/supreme_pizza.113cbb73e162541dfdc7.jpeg",
+    "static/media/pep_sau_pizza.jpeg": "/react-restaurant-app/static/media/pep_sau_pizza.89cc05052dba46f54498.jpeg",
+    "static/media/meet_lovers_pizza.jpeg": "/react-restaurant-app/static/media/meet_lovers_pizza.e0139c4c4219f5512961.jpeg",
+    "static/media/hawaiian_pizza.jpeg": "/react-restaurant-app/static/media/hawaiian_pizza.fc18c929c2851df21e0a.jpeg",
+    "static/media/spicy_taco.jpeg": "/react-restaurant-app/static/media/spicy_taco.3d18c948a670fcadc162.jpeg",
+    "static/media/cheese_pizza.jpeg": "/react-restaurant-app/static/media/cheese_pizza.78d0fe9b5f7ea0dccc70.jpeg",
+    "static/media/nachos.jpeg": "/react-restaurant-app/static/media/nachos.1811cc2e436f3323efa7.jpeg",
+    "static/media/brownie.jpeg": "/react-restaurant-app/static/media/brownie.4c12ecbf7c7992e314fb.jpeg",
+    "static/media/pep_pizza.jpeg": "/react-restaurant-app/static/media/pep_pizza.84abb73faaafc3f610cc.jpeg",
+    "static/media/not_shrimp_taco.jpeg": "/react-restaurant-app/static/media/not_shrimp_taco.5875091a59c800547f73.jpeg",
+    "static/media/two_top_pizza.jpeg": "/react-restaurant-app/static/media/two_top_pizza.0a672569d9eed9de2b7b.jpeg",
+    "static/media/chips.jpeg": "/react-restaurant-app/static/media/chips.3ae898a73e883fbe2747.jpeg",
+    "static/media/one_top_pizza.jpeg": "/react-restaurant-app/static/media/one_top_pizza.2ddc45997858fd73c960.jpeg",
+    "static/media/garlic_knots.jpeg": "/react-restaurant-app/static/media/garlic_knots.e8db896b35d6b838753b.jpeg",
+    "static/media/cookie.jpeg": "/react-restaurant-app/static/media/cookie.d18d8471ca9c862dffc1.jpeg",
+    "static/media/chicken_taco.jpeg": "/react-restaurant-app/static/media/chicken_taco.7e9880859026322367d6.jpeg",
+    "static/media/fries.jpeg": "/react-restaurant-app/static/media/fries.fc543bba192975da8088.jpeg",
+    "static/media/mac_cheese.jpeg": "/react-restaurant-app/static/media/mac_cheese.7a84b50da6ee71ca4229.jpeg",
+    "index.html": "/react-restaurant-app/index.html",
+    "main.d9c5b147.css.map": "/react-restaurant-app/static/css/main.d9c5b147.css.map",
+    "main.57bea185.js.map": "/react-restaurant-app/static/js/main.57bea185.js.map",
+    "787.6a1e1712.chunk.js.map": "/react-restaurant-app/static/js/787.6a1e1712.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9c5b147.css",
+    "static/js/main.57bea185.js"
+  ]
+}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'menu.apps.MenuConfig',
+    'frontend.apps.FrontendConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Static file directories
+#https://docs.djangoproject.com/en/4.0/topics/files/#managing-files
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'frontend/static/build/static'),) #react app
+REACT_APP_DIR = (os.path.join(BASE_DIR, 'frontend/static'))
