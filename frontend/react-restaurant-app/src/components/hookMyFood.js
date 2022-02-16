@@ -9,7 +9,9 @@ function HookMyFood(props) {
     const [total, setTotal] = useState(0);
     const [orderList, setOrderList] = useState([]);
     const [screen, setScreen] = useState(false);
-
+    const [customerName, setCustomerName] = useState('Customer')
+    const [customerValue, setCustomerValue] = useState('')
+   
     const errorMessage = (err) => {
         console.warn(err);
     }
@@ -59,8 +61,9 @@ function HookMyFood(props) {
         // let previousLocalStorage = localStorage.getItem('orderList'); getting orders from local storage
         // localStorage.setItem('orderList', JSON.stringify([orderList, previousLocalStorage])); posting orders to local storage
         const orders = {
-            name : orderList,
-            price: total,   
+            customer: customerName,
+            name: orderList,
+            price: total,
         }
 
         const options = {
@@ -80,7 +83,25 @@ function HookMyFood(props) {
 
         setTotal(0);
         setOrderList([]);
+        setCustomerName('Customer');
         setScreen(false);
+    }
+
+    const cancelOrder = () => {
+        setTotal(0);
+        setOrderList([]);
+        setCustomerName('Customer');
+        setScreen(false);
+    }
+
+    const addCustomerName = (e) => {
+        setCustomerName(e.target.value) 
+        setCustomerValue(e.target.value)
+    }
+
+    const submitName = (e) => {
+        e.preventDefault();
+        setCustomerValue('')
     }
 
     const tacoSelection = menu.filter(menu => (
@@ -141,15 +162,19 @@ function HookMyFood(props) {
 
     const orderScreen = (
         <>
-            <h2 className='restaurantsDisplay col'>Order Details</h2>
+            <h2 className='restaurantsDisplay col-12'>Order Details</h2>
+            <form className="col" onSubmit={submitName}>
+                <input type='text' name="customerName" className='customerName' placeholder='Order Name' value={customerValue} onChange={addCustomerName} required></input>
+                <button type='submit' name="submit" className='customerNameSubmit'>Order Name</button>
+            </form>
             <div>
                 {orderDisplay}
             </div>
             <div className="col">
-                <p className='subTotal'>Sub-Total ${total}</p>
+                <p className='subTotal'> {customerName} Sub-Total ${total}</p>
                 <div className='col'>
                     <button className='backToMenu' onClick={() => setScreen(false)}>Back to Menu</button>
-                    <button className='completeButton' onClick={clearOrder}>Cancel</button>
+                    <button className='cancelButton' onClick={cancelOrder}>Cancel</button>
                     <button className='completeButton' onClick={clearOrder}>Pay Now</button>
                 </div>
             </div>

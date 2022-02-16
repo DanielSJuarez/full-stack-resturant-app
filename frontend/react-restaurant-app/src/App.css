@@ -162,7 +162,8 @@ a{
 .subTotal{
   font-weight: 700;
   color: black;
-  width: 135px;
+  overflow: hidden;
+  width: 300px;
   background-color: white;
   padding-left: 5px;
   border: solid 1px black;
@@ -173,7 +174,7 @@ a{
   color:#bc4f07;
   font-weight: 600;
   font-style: italic;
-  width: 300px;
+  width: 441px;
   padding-left: 10px;
 }
 
@@ -190,6 +191,45 @@ a{
 }
 
 .completeButton:hover{
+  background-color:#005236;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: solid 1px white;
+}
+
+.cancelButton{
+  background-color: #fe982a;
+  border: solid 1px black;
+  margin: 10px 10px 10px 0px;
+  font-weight: 700;
+  width: 145px;
+}
+
+
+.cancelButton:hover{
+  background-color:#005236;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: solid 1px white;
+}
+
+.customerName{
+  color: black;
+  width: 135px;
+  background-color: white;
+  padding-left: 5px;
+  border: solid 1px black;
+}
+
+.customerNameSubmit{
+  background-color: #fe982a;
+  border: solid 1px black;
+  margin: 10px 10px 10px 10px;
+  font-weight: 700;
+  width: 145px;
+}
+
+.customerNameSubmit:hover{
   background-color:#005236;
   color: white;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);

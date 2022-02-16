@@ -13,11 +13,12 @@ class MenuItem(models.Model):
         return self.name
 
 class OrderList(models.Model):
+    customer = models.CharField(max_length=255, null=True)
     name = models.JSONField()
     price = models.IntegerField()
 
-    def __str__(self):
-        return self.name
+    def __str__ (self):
+        return self.customer
     
 
     
