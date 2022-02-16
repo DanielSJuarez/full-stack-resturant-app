@@ -61,12 +61,12 @@ function HookMyFood(props) {
     }
 
     const clearOrder = async () => {
-        // let previousLocalStorage = localStorage.getItem('orderList'); getting orders from local storage
-        // localStorage.setItem('orderList', JSON.stringify([orderList, previousLocalStorage])); posting orders to local storage
+    
         const orders = {
             customer: customerName,
             name: orderList,
             price: total,
+            active: true,
         }
 
         const options = {
@@ -117,15 +117,41 @@ function HookMyFood(props) {
                 setActiveOrder(data);
             }
         }
+
         getOrders();
+
         setAdminScreen(true)
 
         if (!activeOrder) {
             return <div>Fetching order data....</div>
         }
     }
+    
+    const completeCustomerOrder = async () => {
 
+        const completeOrders = {
+            customer: customerName,
+            name: orderList,
+            price: total,
+            active : false,
+        }
 
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': Cookies.get('csrftoken'),
+            },
+            body: JSON.stringify(completeOrders)
+        }
+
+        const response = await fetch(`/orders/${activeOrder.id}/`, options).catch(errorMessage);
+
+        if (!response.ok) {
+            throw new Error('Network response was not OK');
+        }
+
+    }
 
     const tacoSelection = menu.filter(menu => (
         menu.catagory === 'tacos'
@@ -152,18 +178,34 @@ function HookMyFood(props) {
     ));
 
     const orderDisplay = orderList.map(item => (
-        <OrderDisplay {...item} removeSubTotal={removeSubTotal} removeOrder={removeOrder} order={order} subTotal={subTotal} />
+        <OrderDisplay key={item.id} {...item} removeSubTotal={removeSubTotal} removeOrder={removeOrder} order={order} subTotal={subTotal} />
     ));
 
-    console.log(activeOrder)
-    const adminDisplay = activeOrder.map(order => (
-        <AdmimDisplay {...order}/>
+    const filterActiveOrder = activeOrder.filter(order => (
+        order.active === true
+    ));
+    const adminDisplayActive = filterActiveOrder.map(order => (
+        <AdmimDisplay key={order.id} {...order} completeCustomerOrder={completeCustomerOrder}/>
+    ));
+
+    const filterCompletedOrder = activeOrder.filter(order => (
+        order.active === false
+    ));
+
+    const adminDisplayCompleted = filterCompletedOrder.map(order => (
+        <AdmimDisplay key={order.id} {...order}/>
     ));
 
     const adminProfile = (
         <>
-            <div>
-                {adminDisplay}
+            <h2 className='restaurantsDisplay col-12'>Active/Completed Order</h2>
+            <h3 className='menuDisplay col-6'>Active Orders</h3>
+            <h3 className='menuDisplay col-6'>Completed Orders</h3>
+            <div className="col-6">
+                {adminDisplayActive}
+            </div>
+            <div className="col-6">
+                {adminDisplayCompleted}
             </div>
             <footer className='footer'><button name='admin' className='adminButton' type='button' onClick={() => setAdminScreen(false)}>User Profile</button></footer>
         </>
