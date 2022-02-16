@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import MenuList from "./menuList";
 import OrderDisplay from "./orderDisplay";
 import Cookies from 'js-cookie';
+import AdmimDisplay from "./adminDisplay";
 // import MENU from "./menuItems";
 
 function HookMyFood(props) {
@@ -11,7 +12,9 @@ function HookMyFood(props) {
     const [screen, setScreen] = useState(false);
     const [customerName, setCustomerName] = useState('Customer')
     const [customerValue, setCustomerValue] = useState('')
-   
+    const [adminScreen, setAdminScreen] = useState(false)
+    const [activeOrder, setActiveOrder] = useState([])
+
     const errorMessage = (err) => {
         console.warn(err);
     }
@@ -95,7 +98,7 @@ function HookMyFood(props) {
     }
 
     const addCustomerName = (e) => {
-        setCustomerName(e.target.value) 
+        setCustomerName(e.target.value)
         setCustomerValue(e.target.value)
     }
 
@@ -103,6 +106,26 @@ function HookMyFood(props) {
         e.preventDefault();
         setCustomerValue('')
     }
+
+    const getAdmin = () => {
+        const getOrders = async () => {
+            const response = await fetch('/menu/orders/').catch(errorMessage);
+            if (!response.ok) {
+                throw new Error('Netword response was not OK!')
+            } else {
+                const data = await response.json();
+                setActiveOrder(data);
+            }
+        }
+        getOrders();
+        setAdminScreen(true)
+
+        if (!activeOrder) {
+            return <div>Fetching order data....</div>
+        }
+    }
+
+
 
     const tacoSelection = menu.filter(menu => (
         menu.catagory === 'tacos'
@@ -132,6 +155,20 @@ function HookMyFood(props) {
         <OrderDisplay {...item} removeSubTotal={removeSubTotal} removeOrder={removeOrder} order={order} subTotal={subTotal} />
     ));
 
+    console.log(activeOrder)
+    const adminDisplay = activeOrder.map(order => (
+        <AdmimDisplay {...order}/>
+    ));
+
+    const adminProfile = (
+        <>
+            <div>
+                {adminDisplay}
+            </div>
+            <footer className='footer'><button name='admin' className='adminButton' type='button' onClick={() => setAdminScreen(false)}>User Profile</button></footer>
+        </>
+    )
+
     const menuScreen = (
         <div className="container">
             <div className='main row'>
@@ -155,7 +192,7 @@ function HookMyFood(props) {
                         {sidesDisplay}
                     </section>
                 </div>
-                <footer className='footer'><a href="h1">Back to the top</a></footer>
+                <footer className='footer'><button name='admin' className='adminButton' type='button' onClick={getAdmin}>Admin Profile</button></footer>
             </div>
         </div>
     )
@@ -185,7 +222,7 @@ function HookMyFood(props) {
         <>
             <div className="container">
                 <div className='row'>
-                    {screen ? orderScreen : menuScreen}
+                    {adminScreen ? adminProfile : screen ? orderScreen : menuScreen}
                 </div>
             </div>
         </>
