@@ -61,7 +61,7 @@ function HookMyFood(props) {
     }
 
     const clearOrder = async () => {
-    
+
         const orders = {
             customer: customerName,
             name: orderList,
@@ -126,14 +126,14 @@ function HookMyFood(props) {
             return <div>Fetching order data....</div>
         }
     }
-    
-    const completeCustomerOrder = async () => {
 
+    const completeCustomerOrder = async (pk, orderName, orderBreakdown, orderTotal) => {
+        
         const completeOrders = {
-            customer: customerName,
-            name: orderList,
-            price: total,
-            active : false,
+            customer: orderName,
+            name: orderBreakdown,
+            price: orderTotal,
+            active: false,
         }
 
         const options = {
@@ -145,7 +145,7 @@ function HookMyFood(props) {
             body: JSON.stringify(completeOrders)
         }
 
-        const response = await fetch(`/orders/${activeOrder.id}/`, options).catch(errorMessage);
+        const response = await fetch(`/menu/orders/${pk}/`, options).catch(errorMessage);
 
         if (!response.ok) {
             throw new Error('Network response was not OK');
@@ -186,14 +186,14 @@ function HookMyFood(props) {
     ));
     const adminDisplayActive = filterActiveOrder.map(order => (
         <AdmimDisplay key={order.id} {...order} completeCustomerOrder={completeCustomerOrder}/>
-    ));
+    )); 
 
     const filterCompletedOrder = activeOrder.filter(order => (
         order.active === false
     ));
 
     const adminDisplayCompleted = filterCompletedOrder.map(order => (
-        <AdmimDisplay key={order.id} {...order}/>
+        <AdmimDisplay key={order.id} {...order} />
     ));
 
     const adminProfile = (
