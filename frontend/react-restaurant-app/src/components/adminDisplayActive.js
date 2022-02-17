@@ -1,4 +1,4 @@
-function AdmimDisplay({ customer, id, name, price, completeCustomerOrder }) {
+function AdmimDisplayActive({ customer, id, name, price, completeCustomerOrder }) {
 
 
     const updateOrderStatus = () => {
@@ -21,4 +21,4 @@ function AdmimDisplay({ customer, id, name, price, completeCustomerOrder }) {
     );
 }
 
-export default AdmimDisplay;
+export default AdmimDisplayActive;

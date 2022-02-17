@@ -176,6 +176,7 @@ a{
   font-style: italic;
   width: 441px;
   padding-left: 10px;
+  cursor: default;
 }
 
 .deleteItem{

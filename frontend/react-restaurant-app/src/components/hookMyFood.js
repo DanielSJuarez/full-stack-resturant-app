@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import MenuList from "./menuList";
 import OrderDisplay from "./orderDisplay";
 import Cookies from 'js-cookie';
-import AdmimDisplay from "./adminDisplay";
+import AdmimDisplay from "./adminDisplayActive";
+import AdmimDisplayActive from "./adminDisplayActive";
+import AdmimDisplayCompleted from "./adminDisplayCompleted";
 // import MENU from "./menuItems";
 
 function HookMyFood(props) {
@@ -193,7 +195,7 @@ function HookMyFood(props) {
         order.active === true
     ));
     const adminDisplayActive = filterActiveOrder.map(order => (
-        <AdmimDisplay key={order.id} {...order} completeCustomerOrder={completeCustomerOrder} />
+        <AdmimDisplayActive key={order.id} {...order} completeCustomerOrder={completeCustomerOrder} />
     ));
 
     const filterCompletedOrder = activeOrder.filter(order => (
@@ -201,7 +203,7 @@ function HookMyFood(props) {
     ));
 
     const adminDisplayCompleted = filterCompletedOrder.map(order => (
-        <AdmimDisplay key={order.id} {...order} />
+        <AdmimDisplayCompleted key={order.id} {...order} />
     ));
 
     const adminProfile = (
