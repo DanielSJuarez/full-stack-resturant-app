@@ -1,4 +1,5 @@
-function AdmimDisplay({ customer, id, name, price, completeCustomerOrder}) {
+function AdmimDisplay({ customer, id, name, price, completeCustomerOrder }) {
+
 
     const updateOrderStatus = () => {
         const pk = id;
@@ -11,7 +12,7 @@ function AdmimDisplay({ customer, id, name, price, completeCustomerOrder}) {
 
     return (
         <div className='row'>
-            <div className="orderlist col-6">
+            <div className="orderlist " col-6>
                 <p className='orderDisplay'>{customer}
                     <span value={id} className='completed'><button className='deleteItem' type='button' onClick={updateOrderStatus}>Completed</button></span>
                 </p>

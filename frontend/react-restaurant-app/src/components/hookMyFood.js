@@ -128,7 +128,7 @@ function HookMyFood(props) {
     }
 
     const completeCustomerOrder = async (pk, orderName, orderBreakdown, orderTotal) => {
-        
+
         const completeOrders = {
             customer: orderName,
             name: orderBreakdown,
@@ -185,8 +185,8 @@ function HookMyFood(props) {
         order.active === true
     ));
     const adminDisplayActive = filterActiveOrder.map(order => (
-        <AdmimDisplay key={order.id} {...order} completeCustomerOrder={completeCustomerOrder}/>
-    )); 
+        <AdmimDisplay key={order.id} {...order} completeCustomerOrder={completeCustomerOrder} />
+    ));
 
     const filterCompletedOrder = activeOrder.filter(order => (
         order.active === false
