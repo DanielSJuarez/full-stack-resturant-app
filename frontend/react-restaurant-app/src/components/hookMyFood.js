@@ -151,6 +151,14 @@ function HookMyFood(props) {
             throw new Error('Network response was not OK');
         }
 
+        const updatedOrderStatus = activeOrder.map((order) => {
+            if (order.id == pk){
+                return {...order, active: false}
+            } else {
+                return {...order}
+            }
+        })
+        setActiveOrder(updatedOrderStatus)
     }
 
     const tacoSelection = menu.filter(menu => (
